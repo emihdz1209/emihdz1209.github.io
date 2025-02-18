@@ -2,26 +2,52 @@
 <html lang="en">
 <head>
       <title>WikiLeaks dot ORG</title>
+      <link rel="stylesheet" href="WikileaksCss.css">
 </head>
-<body style="padding:6%;">
+<body style="padding:2% 4% 2% 4%;">
     <br>
-    <div id="Header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
-        <a href="https://wikileaks.org/" style="display: flex; align-items: center; font-size: 30px; color: black; text-decoration: none;">
-            <img src="https://cdn.iconscout.com/icon/free/png-256/free-wikileaks-logo-icon-download-in-svg-png-gif-file-formats--company-brand-world-logos-vol-7-pack-icons-282727.png?f=webp&w=256" style="width: 50px; height: 50px; margin-right: 10px;">
-            WikiLeaks
-        </a>
-    
-        <!-- Right Side: Navigation Text -->
-        <div style="font-size: 16px;">
-            Donate | Submit Leaks | News | About | Partners
+    <div id="HeaderBar" >
+        
+        <div id="logo"> 
+            <a href="https://wikileaks.org/">
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-wikileaks-logo-icon-download-in-svg-png-gif-file-formats--company-brand-world-logos-vol-7-pack-icons-282727.png?f=webp&w=256" style="width: 70px;">
+            </a>
+            <a href="https://wikileaks.org/" style="text-decoration:none;color:black;font-size:250%;">
+                WikiLeaks
+            <a href=""> </a>
+            <a href=""> </a>
         </div>
+
+        <div id="menu"> 
+            <a href="https://wikileaks.org/-Leaks-.html">Leaks</a>
+            <a href="https://wikileaks.org/-News-.html">News</a>
+            <a href="https://wikileaks.org/-About-.html">About</a>
+            <a href="https://wikileaks.org/-Partners-.html">Partners</a>
+        </div>
+
+        <div id="actionButtons">
+            <div class="menuButton" style="background-color: rgb(236, 48, 48)">
+                Donate
+            </div>
+            <div class="menuButton" style="background-color: rgb(98, 94, 97)">
+                Submit
+            </div>
+        </div>
+    
     </div>
     
 
-    <div id="CenteredsearchBox" style="text-align:center;">
-        <input id="searchItemsBox" placeholder="Search Keywords" ></input>
-        <button id="searchButton">🔍</button>
+    <div id="CenteredsearchBox">
+        <div id="Searchbox">
+            <input id="searchItemsBox" style="height:90%; width:90%; border:none; background:none; color:rgb(95, 95, 95); font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" type="text" placeholder="   Search Keywords">
+            <button id="searchButton" style="height:100%;background:none;border:none">
+                <img src="https://wikileaks.org/static/img/magnifier-green.png" style="height:40%;">
+            </button>
+        </div>
     </div>
+
+
+
     <br>
     <div id="Filters" style="text-align:center;">
         <button style="background-color:white; border:none; font-weight: bold;">Intelligence</button>
