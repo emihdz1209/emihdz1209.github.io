@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Spotify.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="search-container">
+        <input type="text" id="search-Box" placeholder="Find an artist">
+        <button onclick="saveInput()">Go!</button>
+    </div>
+
+
+    <div class="container">
+        <div class="content">
+
+            <a id="ArtistLink" href="#" target="_blank">
+                <img id="ArtistImage">
+            </a>
+            
+            <div class="row">
+
+                <div class="content">
+                    <h1 id="ArtistName"> Artist Stats </h1>
+                    <h2 id="ArtistGenre"> Search an artist to start </h2>
+                    <div id="PopularityTag">
+                        <p id="TextPart" style="margin:0px; font-size:medium"></p>
+                        <h3 id="ArtistPopularity"> </h3>
+                    </div>
+                </div>
+
+                <div class="content" id="TRACKS">
+                    <h3 id="TopTracksTtitle"></h3>
+                    <ol id="canciones">
+
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div> 
+    
+</body>
+
+<script src="../JS/Spotify.js"></script>
+
+</html>
