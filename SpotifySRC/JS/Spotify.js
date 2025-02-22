@@ -66,7 +66,8 @@ async function ArtistData(ARTISTNAME) {
     ArtistPopularSpot.innerHTML = "";
     
 
-    document.getElementById("TextPart").innerHTML = "Popularity";
+    document.getElementById("TextPart").innerHTML = "Artist Score";
+
 
     const ArtistHREFurl = `https://api.spotify.com/v1/search?q=${ARTISTNAME}&type=artist&limit=1`;
     const ArtistIDRequest = await fetch(ArtistHREFurl, {headers: {'Authorization': 'Bearer ' + Token}});
@@ -81,16 +82,25 @@ async function ArtistData(ARTISTNAME) {
     TRACKSWIDTH.style.width = "auto";
 
     ArtistImageSpot.src = `${ArtistData.images[0].url}`;
+
     ArtistLinkSpot.href = `${ArtistData.external_urls.spotify}`;
+
     ArtistNameSpot.innerHTML += `${ArtistData.name}`;
     if (ArtistData.genres[0] == undefined) {
         ArtistGenreSpot.innerHTML += "No Genre Found";
     }else{
     ArtistGenreSpot.innerHTML += `${ArtistData.genres[0]}`};
 
-    ArtistPopularSpot.innerHTML += `#${ArtistData.popularity}`;
+    ArtistPopularSpot.innerHTML += `${ArtistData.popularity}`;
+     if (ArtistData.popularity > 60) {
+        ArtistPopularSpot.setAttribute("style", "color: #1DB954;");
+    } else if (ArtistData.popularity > 30) {
+        ArtistPopularSpot.setAttribute("style", "color: #FCA65F;");
+    } else {
+        ArtistPopularSpot.setAttribute("style", "color: #FF1F80;");
+    }
 
-    TopTracksSpot.innerHTML = " Top Tracks ";
+    TopTracksSpot.innerHTML = " Top Tracks "; 
 
 
     const topTracks = await getTopTracks(ArtistURL);
