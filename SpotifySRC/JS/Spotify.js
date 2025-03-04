@@ -1,3 +1,5 @@
+import { clientId, clientSecret } from './config.js';
+
 function saveInput() {
     let searchBox = document.getElementById("search-Box");
     let inputValue = searchBox.value;
@@ -11,8 +13,6 @@ function saveInput() {
 }
 
 async function spotifyToken() {
-    const clientId = 'f11c0488356d4f529d9f8afed582ddef';
-    const clientSecret = '5ee433f7c878428d950094a83e0a6c0e';
     const response = await fetch('https://accounts.spotify.com/api/token', {
         method: 'POST',
         headers: {
@@ -23,8 +23,6 @@ async function spotifyToken() {
     });
 
     const data = await response.json();
-    console.log(data);
-
     console.log(data.access_token);
     return data.access_token;
 }
