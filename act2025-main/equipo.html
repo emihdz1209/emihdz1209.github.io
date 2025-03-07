@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Equipo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic" />
+  </head>
+  <body style="padding: 2% 10%">
+    <h1>Mi Equipo</h1>
+
+    <a href="/">Bienvenida</a>
+    <br />
+    <article class="card" style="padding: 2% 5%"></article>
+    <script>
+      async function obtenerEuipo() {
+        //Agregar el url adecuado
+        const listaEquipo = await fetch("/api/equipo");
+        const jsonLE = await listaEquipo.json();
+        console.log(jsonLE);
+        //Muestra las escuelas en el html
+        const miembroLista = document.createElement("ul");
+        const card = document.querySelector(".card");
+
+        for (let i = 0; i < jsonLE.nombres.length; i++) {
+          const miembroElement = document.createElement("li");
+          miembroElement.innerHTML = `
+                <b>${jsonLE.nombres[i]}</b>
+                <ul>
+                    <li>${jsonLE.cualidades[i]}</li>
+                </ul>
+            `;
+          card.appendChild(miembroElement);
+        }
+        card.appendChild(miembroLista);
+      }
+      obtenerEuipo();
+    </script>
+  </body>
+</html>

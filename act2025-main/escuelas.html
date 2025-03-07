@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Escuelas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic" />
+  </head>
+  <body style="padding: 2% 10%">
+    <h1>Lista de escuelas</h1>
+
+    <a href="/">Bienvenida</a>
+    <br />
+    <article class="card" style="padding: 2% 5%"></article>
+    <script>
+      async function obtenerEscuelas() {
+        //Agregar el url adecuado
+        const listaEscuelas = await fetch("/api/escuelas");
+        const jsonLE = await listaEscuelas.json();
+        console.log(jsonLE);
+        //Muestra las escuelas en el html
+        const card = document.querySelector(".card");
+
+        for (let i = 0; i < jsonLE.nombres.length; i++) {
+          console.log("loop " + i);
+          const escuelaElement = document.createElement("div");
+          escuelaElement.innerHTML = `
+                <h3>${jsonLE.nombres[i]}</h2>
+                <p>${jsonLE.direcciones[i]}</p>
+            `;
+          card.appendChild(escuelaElement);
+        }
+      }
+      obtenerEscuelas();
+    </script>
+  </body>
+</html>

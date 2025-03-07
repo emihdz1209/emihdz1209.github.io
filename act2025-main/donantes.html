@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donantes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+</head>
+<body style = "padding: 2% 10%;">
+    <h1>Lista de donantes</h1>
+   
+    <a href="/">Bienvenida</a>
+    <br>
+    <article class="card" style="padding: 2% 5%"></article>
+
+    <script>
+        async function obtenerDonantes() {
+            //Agregar el url adecuado
+          const listaDonantes= await fetch("/api/donantes");
+          const jsonLE= await listaDonantes.json();
+          console.log(jsonLE);
+
+          const card = document.querySelector(".card");
+          
+          for (let i = 0; i < jsonLE.length; i++) {
+            const donante = jsonLE[i];
+            const donanteElement = document.createElement("div");
+            donanteElement.innerHTML = `
+                <h3>${donante.nombre}</h2>
+                <p>${donante.donaciones}</p>
+            `;
+            card.appendChild(donanteElement);
+          }
+
+        }
+        obtenerDonantes();
+    </script>
+</body>
+</html>
